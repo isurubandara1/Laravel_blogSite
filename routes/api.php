@@ -20,5 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 use App\Http\Controllers\MemberController;
 
-Route::post('/register', [MemberController::class, 'register']);
-Route::post('/login', [MemberController::class, 'login']);
+// Route::post('/register', [MemberController::class, 'register']);
+// Route::post('/login', [MemberController::class, 'login']);
+
+use App\Http\Controllers\ImageUploadController;
+
+Route::get('/upload-image', [ImageUploadController::class, 'get']);
+Route::get('/text', [ImageUploadController::class, 'text']);

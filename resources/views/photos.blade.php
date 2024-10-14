@@ -15,7 +15,7 @@
         }
 
         header {
-            background-color:  #14A195FF;
+            background-color: #14A195FF;
             color: white;
             padding: 1rem;
             text-align: center;
@@ -49,15 +49,24 @@
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             margin: 0 0 1rem;
-            color: #333;
+            color: black;
         }
 
-        img {
+        .image-container {
             width: 100%;
-            height: auto;
-            border-radius: 4px; /* Reduced border radius */
+            height: 60%; /* Adjust as needed */
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 10px;
         }
 
         @media (max-width: 600px) {
@@ -80,7 +89,9 @@
         @foreach ($photos as $photo)
             <div class="photo">
                 <h2>{{ $photo->title }}</h2>
-                <img src="{{ asset($photo->image_path) }}" alt="{{ $photo->title }}">
+                <div class="image-container">
+                    <img src="{{ asset($photo->image_path) }}" alt="{{ $photo->title }}">
+                </div>
             </div>
         @endforeach
     </div>
